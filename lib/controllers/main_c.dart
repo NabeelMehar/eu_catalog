@@ -110,7 +110,10 @@ class MainController extends GetxController {
   void onCategoryTap(int idx) {
     selectedGroup = groupList[idx];
 
-    lg.wtf("Selected Group===================>>>" + selectedGroup.name);
+    lg.wtf("Selected Group===================>>>" +
+        selectedGroup.name +
+        "=====>" +
+        selectedGroup.id);
 
     Get.to(() => CatagoryPage());
   }
