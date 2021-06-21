@@ -21,36 +21,38 @@ class CategoryListW extends StatelessWidget {
                   height: 1,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    gxVal.onItemTap(idx);
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                          Container(
-                      width: 50,
-                      height: 50,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: CachedNetworkImage(
-                          fit: BoxFit.cover,
-                          imageUrl: API.CDN +
-                              "images/" +
-                              gxVal.subGroupImageList[idx].tenant +
-                              "/" +
-                              gxVal.subGroupImageList[idx].key,
-                          placeholder: (context, url) => Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(11),
-                              color: Color(0xffbebec4),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: API.CDN +
+                                  "images/" +
+                                  gxVal.subGroupImageList[idx].tenant +
+                                  "/" +
+                                  gxVal.subGroupImageList[idx].key,
+                              placeholder: (context, url) => Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(11),
+                                  color: Color(0xffbebec4),
+                                ),
+                              ),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error),
                             ),
                           ),
-                          errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
                         ),
-                      ),
-                    ),
                         SizedBox(
                           width: 10,
                         ),

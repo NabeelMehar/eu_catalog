@@ -5,6 +5,7 @@ import 'package:eu_catalog/env/config.dart';
 import 'package:eu_catalog/models/group_m.dart';
 import 'package:eu_catalog/models/image_m.dart';
 import 'package:eu_catalog/services/app_states/current_state.dart';
+import 'package:eu_catalog/view/ProductP/product.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:http/http.dart' as http;
@@ -13,6 +14,7 @@ class CategoryController extends GetxController {
   MainController controller = Get.find();
 
   GroupM currentGroup;
+  GroupM currentSubGroup;
   List<GroupM> subgroups;
   List<ImageM> subGroupImageList = List();
   CurrentState state = CurrentState.loading();
@@ -59,10 +61,6 @@ class CategoryController extends GetxController {
         });
       });
 
-      subGroupImageList.forEach((ImageM imageM) {
-        logger.d(imageM.productId);
-      });
-
       state = CurrentState.noError();
       update();
     } catch (e) {
@@ -70,5 +68,11 @@ class CategoryController extends GetxController {
       update();
       logger.d(e);
     }
+  }
+
+  void onItemTap(int idx) {
+    currentSubGroup = subgroups[idx];
+    logger.d(currentSubGroup.name);
+    Get.to(() => ProductPage());
   }
 }
