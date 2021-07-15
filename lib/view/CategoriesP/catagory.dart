@@ -1,7 +1,6 @@
 import 'package:eu_catalog/constants.dart';
 import 'package:eu_catalog/controllers/category_c.dart';
 import 'package:eu_catalog/view/CategoriesP/widgets/category_list_w.dart';
-import 'package:eu_catalog/view/global_w/bottom_nav_bar_w.dart';
 import 'package:eu_catalog/view/global_w/simple_error_w.dart';
 import 'package:eu_catalog/view/global_w/simple_loading_w.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +50,7 @@ class CatagoryPage extends StatelessWidget {
           );
         });
       }),
-      bottomNavigationBar: BottomNavBarW(),
+      // bottomNavigationBar: BottomNavBarW(),
     );
   }
 }

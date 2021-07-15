@@ -1,4 +1,5 @@
-import 'package:eu_catalog/view/CatalogP/catalog.dart';
+import 'package:eu_catalog/auth/theme.dart';
+import 'package:eu_catalog/view/FirstP/first.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,10 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: theme(),
       home: GetBuilder<MainController>(
         builder: (gxValues) {
           return gxValues.state.when(error: (e) {
@@ -29,12 +27,10 @@ class MyApp extends StatelessWidget {
           }, loading: () {
             return LoadingW();
           }, noError: () {
-            return CatalogPage();
+            return FirstPage();
           });
         },
       ),
     );
   }
 }
-
-
